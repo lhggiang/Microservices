@@ -25,7 +25,6 @@ public class BookCommandController {
 
     @PutMapping("/{bookId}")
     public String updateBook(@RequestBody BookRequestModel model, @PathVariable String bookId){
-
         UpdateBookCommand command = new UpdateBookCommand(bookId, model.getName(), model.getAuthor(), model.getIsReady());
         return commandGateway.sendAndWait(command);
     }

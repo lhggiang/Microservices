@@ -32,7 +32,6 @@ public class BookAggregate {
     public BookAggregate(CreateBookCommand command){
         BookCreatedEvent bookCreatedEvent = new BookCreatedEvent();
         BeanUtils.copyProperties(command,bookCreatedEvent);
-
         AggregateLifecycle.apply(bookCreatedEvent);
     }
 
